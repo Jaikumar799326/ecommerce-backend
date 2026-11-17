@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const productRoutes = require("./routes/productRoutes");
+const cartRoutes = require("./routes/cartRoutes");
 require("dotenv").config();
 
 const connectDB = require("./config/db");
@@ -16,6 +17,8 @@ app.use(express.json());
 
 app.use("/api/products", productRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/cart", cartRoutes);
+
 
 app.get("/", (req, res) => {
   res.send("E-Commerce Backend Running ✅");
